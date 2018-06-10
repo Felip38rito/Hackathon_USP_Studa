@@ -1,0 +1,55 @@
+{% extends 'layout.twig' %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/iconic/css/open-iconic-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="row justify-content-sm-center">
+    <h4>O que encontramos para te ajudar nos estudos, {{ val.get("inputNome") }}:</h4>
+  </div>
+
+  <div class="row justify-content-sm-center results-panel">
+    <div class="col-sm-6">
+      <h6>Bibliografia recomendada:</h6>
+
+      <ul>
+        {% for ob in cluster %}
+        <li> 
+          <a href="{{ ob[4] }}">{{ ob[3] }}</a>
+          <div>Assunto: {{ ob[7] }}</div>
+          <div class="rating">
+            Avaliação geral:
+            {% for i in range( ob[2] ) %}
+              <span class="oi oi-star"></span>
+            {% endfor %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <div class="col-sm-3">
+      <h6>Cursos recomendados:</h6>
+
+      <ul>
+        {% for ob in cluster %}
+        <li> 
+          <a href="{{ ob[5] }}">{{ ob[6] }}</a>
+          <div>Ambiente: {{ ob[8] }}</div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <p>Aguarde por novidades! Em breve, teremos descontos nos cursos de nossos parceiros!</p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'layout.twig' %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-sm-center">
+      <h1 class="col-xs-10 .offset-xs-1">Bem vindo ao Studa</h1>
+    </div>
+    <div class="row justify-content-sm-center">
+      <p class="subtitle">Chega aí, conta um pouquinho de você. <br /> Vamos te ajudar a encontrar <i><u>o melhor material</u></i> para estudar!</p>
+    </div>
+    <div class="row justify-content-sm-center signin-panel">
+      <div class="col-lg-4 col-sm-6 col-xs-10 .offset-xs-1">
+        <form action="/results" class="form-signin" method="POST">
+          
+          <input type="hidden" name="inputNome" value="Felipe">
+          <input type="hidden" name="inputIdade" value="26">
+          <input type="hidden" name="inputCurso" value="MATEMATICA">
+          <input type="hidden" name="inputSemestre" value="5">
+          <input type="hidden" name="inputFaculdade" value="USP">
+          <input type="hidden" name="inputLinguas" value="PT">
+          <input type="hidden" name="inputIntercambio" value="0">
+          <input type="hidden" name="inputIC" value="0">
+          <input type="hidden" name="inputExperiencia" value="24">
+          <input type="hidden" name="inputGraduacao" value="GRADUACAO">
+          
+          <h5 class="h5 mb-3 font-weight-normal">Já possui conta? <br>Então vamos lá! </h5>
+          
+          <label for="inputEmail" class="sr-only">Email</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+          
+          <label for="inputPassword" class="sr-only">Senha</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+          
+          <button class="btn btn-danger btn-raised" type="submit">Entrar</button>      
+          <hr/>
+          <button class="btn btn-primary btn-raised" type="button">Login com Facebook</button>
+        </form>
+      </div>
+      <div class="col-lg-4 col-sm-6 col-xs-10 .offset-xs-1">
+        <form action="/complete" class="form-signin form-register" method="POST">
+          <h5 class="h5 mb-3 font-weight-normal">Não possui? É rapidinho! <br> Se cadastra e vamo nessa! </h5>
+          
+          <label for="inputName" class="sr-only">Nome</label>
+          <input name="nome" type="text" id="inputName" class="form-control" placeholder="Nome completo" required="" autofocus="">
+          
+          <label for="inputEmail" class="sr-only">Email</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" required="" autofocus="">
+          
+          <label for="inputPassword" class="sr-only">Senha</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="">
+          
+          <button class="btn btn-danger btn-raised" type="submit">Cadastrar</button>      
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-sm-center">
+    </div>
+  {% endblock %}

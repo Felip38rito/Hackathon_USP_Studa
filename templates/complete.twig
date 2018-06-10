@@ -1,0 +1,149 @@
+{% extends 'signin.twig' %}
+
+{% block content %}
+  <div class="row justify-content-md-center">
+    <h2>Bem vindo {{name}}!</h2><br/>
+  </div>
+  <div class="row justify-content-md-center">
+    <h4>Vamos precisar te conhecer só um pouquinho...</h4>
+  </div>
+  <div class="row justify-content-md-center">
+    <form action="/results" method="POST" class="form-signin form-complete">
+      <input type="hidden" value="{{ name }}" name="inputNome">
+      {# <label for="inputFaculdade" id="inputFaculdade">
+        Onde você estuda?
+      </label> #}
+      <div class="row">
+        <div class="col-sm-6">
+          <input type="text" name="inputIdade" class="form-control" required placeholder="Qual sua idade?">
+        </div>
+        <div class="col-sm-6">
+          <input type="text" name="inputFaculdade" class="form-control" required placeholder="Onde você estuda?">
+        </div>
+      </div>
+
+      {# <label for="inputSemestre" class="">Qual semestre está cursando?</label> #}
+      <div class="row">
+        <div class="col-sm-6">
+          <select name="inputSemestre" id="inputSemestre" required class="form-control">
+            <option>Qual semestre?</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>  
+        </div>
+
+        <div class="col-sm-6">
+          <select name="inputCurso" id="inputCurso" required class="form-control">
+            <option>Qual seu curso?</option>
+            <option value="HISTORIA">História</option>
+            <option value="MATEMATICA">Matemática</option>
+            <option value="ENGENHARIA CIVIL">Engeharia Civil</option>
+            <option value="GEOGRAFIA">Geografia</option>
+            <option value="LETRAS">Letras</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="row justify-content-md-center">
+        <div class="col-sm-6">
+          <select name="inputGraduacao" id="inputGraduacao" required class="form-control">
+            <option>Qual seu grau de formação?</option>
+            <option value="GRADUACAO">Graduação</option>
+            <option value="MESTRADO">Mestrado</option>
+            <option value="DOUTORADO">Doutorado</option>
+          </select>
+        </div>
+
+        <div class="col-sm-6">
+          <select name="inputExperiencia" id="inputExperiencia" required class="form-control">
+            <option>Possui experiência profissional?</option>
+            <option value="0">Não</option>
+            <option value="6">Sim, até 6 meses</option>
+            <option value="12">Sim, até 1 ano</option>
+            <option value="24">Sim, até 2 anos</option>
+            <option value="27">Sim, mais que 2 anos</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="col-sm-6">Em quais idiomas possui fluência?</label>
+        <label class="col-sm-6">Está trabalhando atualmente?</label>
+      </div>
+      
+      <div class="row content">
+          <div class="col-sm-5 offset-sm-1">
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" checked name="inputLinguas" id="inputLinguas1" value="PT" class="form-check-input" />
+                <label class="" for="inputLinguas1">Português</label>
+              </div>
+
+              <div class="col-sm-12">
+                <input type="checkbox" name="inputLinguas[]" id="inputLinguas2" value="EN" class="form-check-input" />
+                <label class="" for="inputLinguas2">Inglês</label>
+              </div>
+
+              <div class="col-sm-12">
+                <input type="checkbox" name="inputLinguas[]" id="inputLinguas3" value="ES" class="form-check-input" />
+                <label class="" for="inputLinguas3">Espanhol</label>
+              </div>
+
+              <div class="col-sm-12">
+                <input type="checkbox" name="inputLinguas[]" id="inputLinguas4" value="OU" class="form-check-input" />
+                <label class="" for="inputLinguas4">Outros</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-2 offset-sm-1">
+            <input type="radio" checked name="inputTrabalhando" id="inputTrabalhando1" value="0" class="form-check-input" />
+            <label class="" for="inputTrabalhando1">Não</label>
+          </div>
+          <div class="col-sm-2">
+            <input type="radio" checked name="inputTrabalhando" id="inputTrabalhando2" value="1" class="form-check-input" />
+            <label class="" for="inputTrabalhando2">Sim</label>
+          </div>
+      </div>
+
+      <div class="row">
+        <label class="col-sm-6">Já participou de intercâmbio?</label>
+        <label class="col-sm-6">Iniciação Científica?</label>
+      </div>
+      <div class="row content">
+        <div class="col-sm-2 offset-sm-1">
+          <input type="radio" checked name="inputIntercambio" id="inputIntercambio1" value="0" class="form-check-input" />
+          <label class="" for="inputIntercambio1">Não</label>
+        </div>
+        <div class="col-sm-2">
+          <input type="radio" checked name="inputIntercambio" id="inputIntercambio2" value="1" class="form-check-input" />
+          <label class="" for="inputIntercambio2">Sim</label>
+        </div>
+        <div class="col-sm-2 offset-sm-2">
+          <input type="radio" checked name="inputIC" id="inputIC1" value="0" class="form-check-input" />
+          <label class="" for="inputIC1">Não</label>
+        </div>
+        <div class="col-sm-2">
+          <input type="radio" checked name="inputIC" id="inputIC2" value="1" class="form-check-input" />
+          <label class="" for="inputIC2">Sim</label>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-sm-12">
+          <input type="submit" value="Vamos!" class="btn btn-danger btn-raise" />
+        </div>
+      </div>
+      
+      
+    </form>
+  </div>
+{% endblock %}

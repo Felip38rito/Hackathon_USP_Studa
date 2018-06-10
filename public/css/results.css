@@ -1,0 +1,11 @@
+.results-panel {
+  margin-top: 30px;
+}
+.results-panel ul {
+  list-style: none;
+  padding-left: 0; 
+}
+
+.results-panel ul li {
+  margin-bottom: 3em;
+}
